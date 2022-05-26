@@ -1,0 +1,35 @@
+
+<div 
+*ngIf="showError"
+class="alert alert-dismissible alert-danger">
+    <strong>{{textError}}</strong>
+</div>
+<div class="container mt-3">
+    <h1 class="display-5 text-center">¿Qué URL desea acortar?</h1>
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-8">
+            <input 
+            [(ngModel)]="nameUrl"
+            type="text" 
+            class="form-control form-control-lg mb-1" 
+            placeholder="Ingrese URL...">
+        </div>
+        <div class="col-lg-4">
+            <button 
+            (click)="processUrl()"
+            class="btn btn-primary btn-block btn-lg">¡ACORTAR!</button>
+        </div>
+    </div>
+    <div 
+    *ngIf="processedUrl"
+    class="row">
+        <div class="col-lg-8">
+            <input 
+            [(ngModel)]="shortUrl"
+            type="text" 
+            class="form-control form-control-lg" 
+            placeholder="URL procesada por Bitly">
+        </div>
+    </div>
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>
